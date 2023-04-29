@@ -1,0 +1,54 @@
+mport random
+
+print('************* GUESSING COLOR GAME ************* ')
+name = input("What is your name? ")
+print("Good Luck ! ", name)
+print()
+repeat = True
+while repeat == True:
+    colours = ['blue', 'red', 'orange', 'purple', 'green']
+
+    colors = colours
+    color = random.choice(colors)
+
+    print("Your color has", len(color), "letters.")
+
+    if color in colours:
+        print("Guess the color: ")
+
+    guesses = ''
+    life = 3
+
+    while life > 0:
+        failed = 0
+        for i in color:
+            if i in guesses:
+                print(i)
+
+            else:
+                print("_")
+                failed += 1
+
+        if failed == 0:
+            print("That's right!")
+            print("The color is: ", color)
+            break
+
+        guess = input("guess the color: ")
+        guesses += guess
+
+        if guess not in color:
+            life -= 1
+            print("Wrong")
+            print("You have", + life, 'more life')
+
+        if life == 0:
+            exit("Thank you for playing")
+
+    play = input('play again? ')
+    if play == 'yes':
+        print(play)
+
+    elif play == "no":
+        print(play)
+        exit('Thank you for playing')
